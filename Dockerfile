@@ -1,36 +1,31 @@
-# Start from Maven image to build the project
-FROM maven:3.9.3-eclipse-temurin-21 AS build
+# -------- BUILD STAGE --------
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 
-# Set working directory
 WORKDIR /app
 
-# Copy only the pom.xml first to leverage Docker cache for dependencies
+# Copy only pom.xml first (better caching)
 COPY pom.xml .
 
-# Download dependencies (will cache unless pom.xml changes)
-RUN mvn dependency:go-offline -B
+# Download dependencies
+RUN mvn dependency:go-offline
 
-# Copy the source code
+# Copy source code
 COPY src ./src
 
-# Build the Spring Boot jar
+# Package the application
 RUN mvn clean package -DskipTests
 
-# ---- Runtime Stage ----
-FROM eclipse-temurin:21-jdk-alpine
 
-# Set working directory
+# -------- RUNTIME STAGE --------
+FROM eclipse-temurin:21-jre-alpine
+
 WORKDIR /app
 
-# Copy the jar from the build stage
+# Copy jar from build stage
 COPY --from=build /app/target/*.jar app.jar
 
-# Expose default Spring Boot port
+# Expose your port
 EXPOSE 8005
 
-# Pass environment variables to Spring Boot (example: email config)
-# These can also be set directly in Render as environment variables
-ENV JAVA_OPTS=""
-
-# Command to run the jar
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
+# Run the app
+ENTRYPOINT ["java","-jar","app.jar"]
