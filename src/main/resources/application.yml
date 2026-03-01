@@ -1,10 +1,10 @@
 server:
   port: 8005
+
 spring:
   application:
     name: victor-portfolio
 
-  # Thymeleaf configuration
   thymeleaf:
     cache: false
     prefix: classpath:/templates/
@@ -14,28 +14,21 @@ spring:
     servlet:
       content-type: text/html
 
-  # Static resources
   web:
     resources:
       static-locations: classpath:/static/
       cache:
         period: 3600
 
-  # Email configuration (Gmail example)
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: ${MAIL_USERNAME}
-    password: ${MAIL_PASSWORD}
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-            required: true
-          connectiontimeout: 5000
-          timeout: 5000
-          writetimeout: 5000
+portfolio:
+  email:
+    sender: ${PORTFOLIO_EMAIL_SENDER:noreply@victorportfolio.com}
+    recipient: ${PORTFOLIO_EMAIL_RECIPIENT:njihiavictor754@gmail.com}
 
+# SendGrid API Key (never hardcode)
+SENDGRID_API_KEY: ${SENDGRID_API_KEY}
 
+logging:
+  level:
+    root: INFO
+    com.portfolio.MyPortfolio: DEBUG
