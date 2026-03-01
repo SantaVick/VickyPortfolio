@@ -24,6 +24,6 @@ public class ContactMessage {
     private String subject;
 
     @NotBlank(message = "Message is required")
-    @Size(min = 10, max = 1000, message = "Message must be between 10 and 1000 characters")
+    @Size(min = 5, max = 1000, message = "Message must be between 10 and 1000 characters")
     private String message;
 }

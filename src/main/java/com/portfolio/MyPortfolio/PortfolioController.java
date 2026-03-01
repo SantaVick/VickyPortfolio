@@ -57,12 +57,17 @@ public class PortfolioController {
     @PostMapping("/contact/send")
     public String sendMessage(@Valid @ModelAttribute ContactMessage contactMessage,
                               BindingResult bindingResult,
+                              Model model,
                               RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute("error", true);
-            redirectAttributes.addFlashAttribute("errorMessage", "Please check your input and try again.");
-            return "redirect:/contact";
+            // Re-add attributes for the form to repopulate
+            model.addAttribute("contactMessage", contactMessage);
+            model.addAttribute("currentYear", Year.now().getValue());
+            // Optional: add a general message if you want
+            model.addAttribute("error", true);
+            model.addAttribute("errorMessage", "Please fix the errors below.");
+            return "contact";  // ← return template name directly, NOT redirect
         }
 
         try {
@@ -72,10 +77,10 @@ public class PortfolioController {
                     "Thanks for reaching out! I'll get back to you within 24 hours. A confirmation has been sent to your email.");
             log.info("Contact message sent successfully from: {}", contactMessage.getEmail());
         } catch (Exception e) {
-            log.error("Failed to send contact message: {}", e.getMessage());
+            log.error("Failed to send contact message: {}", e.getMessage(), e);
             redirectAttributes.addFlashAttribute("error", true);
             redirectAttributes.addFlashAttribute("errorMessage",
-                    "Something went wrong. Please try again or email me directly at njihiavictor754@gmail.com");
+                    "Something went wrong on our end. Please try again or email me directly at njihiavictor754@gmail.com");
         }
 
         return "redirect:/contact";

@@ -1,5 +1,6 @@
 server:
   port: 8005
+  forward-headers-strategy: framework
 
 spring:
   application:
@@ -20,15 +21,29 @@ spring:
       cache:
         period: 3600
 
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+
 portfolio:
   email:
     sender: ${PORTFOLIO_EMAIL_SENDER:noreply@victorportfolio.com}
     recipient: ${PORTFOLIO_EMAIL_RECIPIENT:njihiavictor754@gmail.com}
 
-sendgrid:
-  api-key: ${SENDGRID_API_KEY}
-
 logging:
   level:
     root: INFO
     com.portfolio.MyPortfolio: DEBUG
+    org.springframework.mail: DEBUG
