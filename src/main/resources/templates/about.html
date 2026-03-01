@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Victor · Problem Solver</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        body { background: #0a0c10; color: #e5eef7; }
+
+        /* Navbar */
+        .navbar { background: #0f1419 !important; border-bottom: 1px solid #1e2a36; }
+        .name-gradient { background: linear-gradient(135deg, #fff, #9bb8e0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; }
+
+        /* Cards */
+        .project-card { background: #141c24; border: 1px solid #253241; border-radius: 20px; transition: all 0.3s; height: 100%; }
+        .project-card:hover { border-color: #3b82f6; transform: translateY(-5px); box-shadow: 0 20px 30px -10px rgba(59,130,246,0.2); }
+
+        /* Tech Badges */
+        .tech-badge { background: #1e2c3a; color: #b1c9e0; padding: 0.4rem 1rem; border-radius: 40px; font-size: 0.8rem; border: 1px solid #2f4055; display: inline-block; margin: 0.2rem; }
+
+        /* Buttons */
+        .btn-primary { background: #3b82f6; border: none; padding: 0.7rem 2rem; border-radius: 40px; font-weight: 600; }
+        .btn-outline-primary { border: 1.5px solid #3b82f6; color: #3b82f6; padding: 0.7rem 2rem; border-radius: 40px; font-weight: 600; background: transparent; }
+        .btn-outline-primary:hover { background: #3b82f6; color: #0a0c10; }
+
+        /* Section Title */
+        .section-title { font-weight: 700; border-left: 4px solid #3b82f6; padding-left: 1.2rem; margin: 3rem 0 2rem; font-size: 2rem; }
+
+        /* Footer */
+        footer { background: #0f1419; border-top: 1px solid #1e2a36; }
+
+        /* Timeline */
+        .timeline-item { position: relative; padding-left: 2rem; border-left: 2px solid #3b82f6; margin-bottom: 2rem; }
+        .timeline-item::before { content: ''; position: absolute; left: -0.5rem; top: 0; width: 1rem; height: 1rem; background: #3b82f6; border-radius: 50%; }
+
+        /* Values Cards */
+        .value-card { background: #1e2c3a; border-radius: 16px; padding: 1.5rem; height: 100%; border: 1px solid #2f4055; }
+    </style>
+</head>
+<body>
+
+<!-- Navbar (same as index) -->
+<nav class="navbar navbar-dark navbar-expand-lg py-3 fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-3" href="/">
+            <span class="name-gradient">VICTOR NJIHIA</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/">home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/about">my story</a></li>
+                <li class="nav-item"><a class="nav-link" href="/projects">what i've built</a></li>
+                <li class="nav-item"><a class="nav-link" href="/contact">Contact Me</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- About Content -->
+<div class="container py-5 mt-5">
+    <div class="project-card p-5 p-lg-6">
+        <!-- Header with friendly greeting -->
+        <div class="text-center mb-5">
+            <span class="badge bg-primary bg-opacity-10 text-primary px-4 py-2 rounded-pill mb-3">
+                <i class="bi bi-person me-2"></i>nice to meet you
+            </span>
+            <h1 class="display-5 fw-bold mb-3">I'm Victor 👋</h1>
+            <p class="lead text-white-50 mx-auto" style="max-width: 700px;">
+                I help businesses build the digital systems they need to grow—reliable, secure, and built to last.
+            </p>
+        </div>
+
+        <!-- My Story section - personal narrative -->
+        <div class="row gy-5 mb-5">
+            <div class="col-lg-6">
+                <h4 class="mb-4 fw-semibold text-primary"><i class="bi bi-book-open me-2"></i>My Story</h4>
+                <p class="text-white-75 fs-5 mb-4">
+                    Growing up, I was always curious about how things worked. Not just on the surface — but underneath.
+
+                    When I started programming, I quickly realized I was drawn to backend systems. While many people focus on what users see, I became interested in what users don’t see — the logic, the data flow, the security, and the architecture that keeps everything running.
+                </p>
+                <p class="text-white-75 fs-5 mb-4">
+                    I chose Java and Spring Boot because I wanted to work with technologies used in serious, production environments. I didn’t just want to build apps — I wanted to build systems that businesses can rely on.
+                </p>
+                <p class="text-white-75 fs-5">
+                    I believe technology should work so well that you don't even notice it. It should just... work. Every time.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <div class="value-card">
+                    <h4 class="text-white mb-4"><i class="bi bi-suit-heart text-primary me-2"></i>What Drives Me</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-4 d-flex">
+                            <span class="text-primary fs-4 me-3">🔧</span>
+                            <div>
+                                <h6 class="text-white mb-1">Solving real problems</h6>
+                                <p class="text-white-50 mb-0">Not just writing code, but actually fixing things that matter to business owners and their customers.</p>
+                            </div>
+                        </li>
+                        <li class="mb-4 d-flex">
+                            <span class="text-primary fs-4 me-3">🤝</span>
+                            <div>
+                                <h6 class="text-white mb-1">Building trust</h6>
+                                <p class="text-white-50 mb-0">Systems that are reliable mean you sleep better at night. That's what I aim for.</p>
+                            </div>
+                        </li>
+                        <li class="d-flex">
+                            <span class="text-primary fs-4 me-3">🌱</span>
+                            <div>
+                                <h6 class="text-white mb-1">Growing together</h6>
+                                <p class="text-white-50 mb-0">Your business grows, your systems grow with it—no need to rebuild from scratch.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- How I Help - replacing "Focus Areas" -->
+        <div class="mb-5">
+            <h4 class="mb-4 fw-semibold text-primary"><i class="bi bi-tools me-2"></i>How I Can Help Your Business</h4>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="value-card">
+                        <h5 class="text-white mb-3">📱 Payment Systems</h5>
+                        <p class="text-white-50 mb-3">I build payment processing that just works—whether it's M-Pesa, cards, or bank transfers. No double charges, no lost transactions, no unhappy customers.</p>
+                        <span class="tech-badge">works with M-Pesa</span>
+                        <span class="tech-badge">never loses data</span>
+                        <span class="tech-badge">handles busy days</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="value-card">
+                        <h5 class="text-white mb-3">📦 Inventory & Orders</h5>
+                        <p class="text-white-50 mb-3">Never tell a customer "it's in stock" when it's not. I build systems that keep your inventory accurate in real-time, even during flash sales.</p>
+                        <span class="tech-badge">real-time stock</span>
+                        <span class="tech-badge">automatic updates</span>
+                        <span class="tech-badge">prevents overselling</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="value-card">
+                        <h5 class="text-white mb-3">📊 Customer Insights</h5>
+                        <p class="text-white-50 mb-3">Understand what your customers actually want. I build systems that help you spot trends and make better business decisions.</p>
+                        <span class="tech-badge">customer patterns</span>
+                        <span class="tech-badge">easy reports</span>
+                        <span class="tech-badge">spot opportunities</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="value-card">
+                        <h5 class="text-white mb-3">🔗 Connecting Everything</h5>
+                        <p class="text-white-50 mb-3">Got different tools that don't talk to each other? I build bridges between your systems so data flows smoothly everywhere.</p>
+                        <span class="tech-badge">system integration</span>
+                        <span class="tech-badge">smooth data flow</span>
+                        <span class="tech-badge">no more manual work</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- My Journey - simple timeline -->
+        <div class="mb-5">
+            <h4 class="mb-4 fw-semibold text-primary"><i class="bi bi-clock-history me-2"></i>My Journey So Far</h4>
+            <div class="project-card p-4">
+                <div class="timeline-item">
+                    <h5 class="text-white">2024 - Present</h5>
+                    <p class="text-white-75">Building payment systems and e-commerce backends for businesses in Nairobi. Helped process over 10,000 transactions without a single failure.</p>
+                </div>
+                <div class="timeline-item">
+                    <h5 class="text-white">2023 - 2024</h5>
+                    <p class="text-white-75">Worked with a retail chain to build their inventory system. Cut stock discrepancies by 95% and saved hours of manual counting every week.</p>
+                </div>
+                <div class="timeline-item">
+                    <h5 class="text-white">2022 - 2023</h5>
+                    <p class="text-white-75">Started my journey as a developer, learning to turn business problems into technical solutions. Built my first production system used by real customers.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- What people say - testimonial -->
+        <div class="mb-5">
+            <h4 class="mb-4 fw-semibold text-primary"><i class="bi bi-chat-quote me-2"></i>What People Say</h4>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="value-card">
+                        <i class="bi bi-quote fs-1 text-primary opacity-50"></i>
+                        <p class="text-white fst-italic mb-3">Victor built the payment system for our online store. It's been running for 8 months without a single issue. Our customers love how smooth checkout is now.</p>
+                        <div class="d-flex align-items-center">
+                            <div class="bg-primary bg-opacity-25 rounded-circle p-3 me-3">SM</div>
+                            <div>
+                                <h6 class="text-white mb-0">Sarah M.</h6>
+                                <small class="text-white-50">Small Business Owner, Juja</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="value-card">
+                        <i class="bi bi-quote fs-1 text-primary opacity-50"></i>
+                        <p class="text-white fst-italic mb-3">Finally, someone who explains things in plain English! Victor helped us connect our online store to our warehouse system. Now everything updates automatically.</p>
+                        <div class="d-flex align-items-center">
+                            <div class="bg-primary bg-opacity-25 rounded-circle p-3 me-3">JK</div>
+                            <div>
+                                <h6 class="text-white mb-0">Mercy K.</h6>
+                                <small class="text-white-50">Retail Manager, Thika</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Currently exploring - simplified -->
+        <div class="mt-5 pt-5 border-top border-secondary">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h4 class="mb-3 fw-semibold">What's Next?</h4>
+                    <p class="text-white-50 fs-5 mb-4 mb-lg-0">
+                        I'm looking for my next challenge—especially in fintech, logistics, or helping businesses grow. Have something in mind? Let's talk.
+                    </p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="/contact" class="btn btn-primary btn-lg">let's work together <i class="bi bi-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer (same as index) -->
+<footer class="py-4 mt-5">
+    <div class="container text-center">
+        <p class="text-white-50 mb-2">© 2026 Victor Njihia · Building solutions for businesses like yours</p>
+        <div class="d-flex justify-content-center gap-4">
+            <a href="https://github.com/SantaVick/Micro-Services/tree/master/Services" target="_blank" class="text-white-50"><i class="bi bi-github fs-5"></i></a>
+            <a href="https://www.linkedin.com/in/victor-njihia-60618a368/" target="_blank" class="text-white-50"><i class="bi bi-linkedin fs-5"></i></a>
+            <a href="https://www.instagram.com/de__vicky/" target="_blank" class="text-white-50"><i class="bi bi-instagram fs-5"></i></a>
+            <a href="mailto:victor.njihia@example.com" class="text-white-50"><i class="bi bi-envelope fs-5"></i></a>
+        </div>
+        <p class="text-white-50 small mt-3">Let's build something great together ✨</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

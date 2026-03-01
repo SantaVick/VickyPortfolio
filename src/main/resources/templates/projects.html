@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects · Victor Njihia</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        body { background: #0a0c10; color: #e5eef7; }
+        .navbar { background: #0f1419; border-bottom: 1px solid #1e2a36; }
+        .project-card {
+            background: #141c24;
+            border: 1px solid #253241;
+            border-radius: 20px;
+            transition: all 0.3s;
+            height: 100%;
+        }
+        .project-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -10px rgba(59,130,246,0.2);
+        }
+        .tech-badge {
+            background: #1e2c3a;
+            color: #b1c9e0;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            border: 1px solid #2f4055;
+            display: inline-block;
+            margin: 0.2rem;
+        }
+        .btn-outline-primary {
+            border: 1.5px solid #3b82f6;
+            color: #3b82f6;
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            background: transparent;
+        }
+        .btn-outline-primary:hover {
+            background: #3b82f6;
+            color: #0a0c10;
+        }
+        .section-title {
+            font-weight: 700;
+            border-left: 4px solid #3b82f6;
+            padding-left: 1.2rem;
+            margin: 2rem 0 2rem;
+            font-size: 2rem;
+        }
+        footer {
+            background: #0f1419;
+            border-top: 1px solid #1e2a36;
+        }
+        .name-gradient {
+            background: linear-gradient(135deg, #fff, #9bb8e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .filter-btn {
+            background: #1e2c3a;
+            color: #b1c9e0;
+            border: 1px solid #2f4055;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark navbar-expand-lg py-3 fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-3" href="/">
+            <span class="name-gradient">VICTOR NJIHIA</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/">home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about">about</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/projects">projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="/contact">contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Projects Header -->
+<div class="container" style="padding-top: 120px;">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="display-4 fw-bold text-white mb-3">my projects</h1>
+            <p class="lead text-white-50 mb-5 col-lg-6">
+                Real-world backend systems built for production — scalable, observable, and maintainable.
+            </p>
+        </div>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="d-flex flex-wrap gap-2 mb-5">
+        <button class="filter-btn active">all</button>
+        <button class="filter-btn">microservices</button>
+        <button class="filter-btn">event-driven</button>
+        <button class="filter-btn">spring boot</button>
+        <button class="filter-btn">cloud native</button>
+    </div>
+</div>
+
+<!-- Projects Grid -->
+<div class="container pb-5">
+    <div class="row g-4">
+
+        <!-- Project 1 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="project-card p-4 d-flex flex-column">
+                <span class="badge bg-primary bg-opacity-10 text-primary mb-3">2025 · microservices</span>
+                <h3 class="text-white mb-3">Payment Orchestrator</h3>
+                <p class="text-white-50 mb-4 flex-grow-1">
+                    High-throughput payment processing system handling 10k+ transactions daily. Implements idempotency keys, distributed tracing with OpenTelemetry, and circuit breakers for resilience.
+                </p>
+                <div class="mb-4">
+                    <span class="tech-badge">Java 21</span>
+                    <span class="tech-badge">Spring Boot</span>
+                    <span class="tech-badge">Redis</span>
+                    <span class="tech-badge">Kafka</span>
+                    <span class="tech-badge">PostgreSQL</span>
+                    <span class="tech-badge">Jaeger</span>
+                    <span class="tech-badge">Docker</span>
+                    <span class="tech-badge">K8s</span>
+                </div>
+                <a href="https://github.com/SantaVick/Micro-Services/tree/master/Services/Payment" target="_blank"
+                   class="btn btn-outline-primary mt-auto align-self-start">
+                    View Details →
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="project-card p-4 d-flex flex-column">
+                <span class="badge bg-primary bg-opacity-10 text-primary mb-3">2025 · microservices</span>
+                <h3 class="text-white mb-3">E-Commerce Platform</h3>
+                <p class="text-white-50 mb-4 flex-grow-1">
+                    Scalable microservices architecture for product catalog, inventory, and order management. Features Redis caching, rate limiting, and Kubernetes orchestration.
+                </p>
+                <div class="mb-4">
+                    <span class="tech-badge">Spring Cloud</span>
+                    <span class="tech-badge">Kubernetes</span>
+                    <span class="tech-badge">Redis</span>
+                    <span class="tech-badge">PostgreSQL</span>
+                    <span class="tech-badge">Docker</span>
+                    <span class="tech-badge">Eureka</span>
+                    <span class="tech-badge">Gateway</span>
+                </div>
+                <a href="https://github.com/SantaVick/Micro-Services" target="_blank"
+                   class="btn btn-outline-primary mt-auto align-self-start">
+                    View Details →
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="project-card p-4 d-flex flex-column">
+                <span class="badge bg-primary bg-opacity-10 text-primary mb-3">2025 · event-driven</span>
+                <h3 class="text-white mb-3">Real-Time Analytics</h3>
+                <p class="text-white-50 mb-4 flex-grow-1">
+                    Event-driven system processing millions of events/day using Kafka and Spring Cloud Stream. Instrumented with OpenTelemetry for end-to-end tracing.
+                </p>
+                <div class="mb-4">
+                    <span class="tech-badge">Kafka</span>
+                    <span class="tech-badge">Spring Cloud Stream</span>
+                    <span class="tech-badge">OpenTelemetry</span>
+                    <span class="tech-badge">Jaeger</span>
+                    <span class="tech-badge">Grafana</span>
+                    <span class="tech-badge">Prometheus</span>
+                </div>
+                <a href="https://github.com/SantaVick/Micro-Services/tree/master/Services" target="_blank"
+                   class="btn btn-outline-primary mt-auto align-self-start">
+                    View Details →
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="project-card p-4 d-flex flex-column">
+                <span class="badge bg-primary bg-opacity-10 text-primary mb-3">2025 · security</span>
+                <h3 class="text-white mb-3">Auth Service</h3>
+                <p class="text-white-50 mb-4 flex-grow-1">
+                    Centralized OAuth2 authorization server with JWT tokens, supporting multiple client applications. Includes session management with Redis.
+                </p>
+                <div class="mb-4">
+                    <span class="tech-badge">Spring Security</span>
+                    <span class="tech-badge">OAuth2</span>
+                    <span class="tech-badge">JWT</span>
+                    <span class="tech-badge">Redis</span>
+                    <span class="tech-badge">PostgreSQL</span>
+                    <span class="tech-badge">Docker</span>
+                </div>
+                <a href="https://github.com/SantaVick/LMS/tree/master/Services" target="_blank"
+                   class="btn btn-outline-primary mt-auto align-self-start">
+                    View Details →
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="project-card p-4 d-flex flex-column">
+                <span class="badge bg-primary bg-opacity-10 text-primary mb-3">2025 · real-time</span>
+                <h3 class="text-white mb-3">Inventory System</h3>
+                <p class="text-white-50 mb-4 flex-grow-1">
+                    Real-time inventory tracking with Redis caching and WebSocket updates for live stock changes across multiple warehouses.
+                </p>
+                <div class="mb-4">
+                    <span class="tech-badge">Spring Boot</span>
+                    <span class="tech-badge">WebSocket</span>
+                    <span class="tech-badge">Redis</span>
+                    <span class="tech-badge">PostgreSQL</span>
+                    <span class="tech-badge">React</span>
+                </div>
+                <a href="https://github.com/SantaVick/Micro-Services/tree/master/Services" target="_blank"
+                   class="btn btn-outline-primary mt-auto align-self-start">
+                    View Details →
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="project-card p-4 d-flex flex-column">
+                <span class="badge bg-primary bg-opacity-10 text-primary mb-3">2025 · performance</span>
+                <h3 class="text-white mb-3">URL Shortener</h3>
+                <p class="text-white-50 mb-4 flex-grow-1">
+                    High-performance URL shortening service with Redis caching, rate limiting, and analytics tracking for 1M+ redirects/month.
+                </p>
+                <div class="mb-4">
+                    <span class="tech-badge">Spring Boot</span>
+                    <span class="tech-badge">Redis</span>
+                    <span class="tech-badge">PostgreSQL</span>
+                    <span class="tech-badge">Docker</span>
+                    <span class="tech-badge">Prometheus</span>
+                </div>
+                <a href="https://github.com/SantaVick/Breath-first-Search/tree/main/bfs/src" target="_blank"
+                   class="btn btn-outline-primary mt-auto align-self-start">
+                    View Details →
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div class="container py-5">
+    <div class="project-card p-5 text-center">
+        <h3 class="text-white mb-3">interested in working together?</h3>
+        <p class="text-white-50 mb-4 col-lg-8 mx-auto">
+            I'm currently available for freelance projects and full-time opportunities.
+        </p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="/contact" class="btn btn-primary btn-lg">contact me</a>
+            <a href="https://github.com/SantaVick" target="_blank" class="btn btn-outline-light btn-lg">view github</a>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="py-4 mt-5">
+    <div class="container text-center">
+        <p class="text-white-50 mb-2">© 2026 Victor Njihia · Backend Engineer</p>
+        <div class="d-flex justify-content-center gap-4">
+            <a href="https://github.com/SantaVick/Micro-Services/tree/master/Services" target="_blank" class="text-white-50"><i class="bi bi-github fs-5"></i></a>
+            <a href="https://www.linkedin.com/in/victor-njihia-60618a368/" target="_blank" class="text-white-50"><i class="bi bi-linkedin fs-5"></i></a>
+            <a href="https://www.instagram.com/de__vicky/" target="_blank" class="text-white-50"><i class="bi bi-instagram fs-5"></i></a>
+            <a href="mailto:victor.njihia@example.com" class="text-white-50"><i class="bi bi-envelope fs-5"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Minimal JS for filter buttons (just UI, no actual filtering)
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+</script>
+</body>
+</html>
